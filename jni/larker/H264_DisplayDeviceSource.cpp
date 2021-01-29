@@ -77,7 +77,7 @@ std::list< std::pair<unsigned char*,size_t> > H264_DisplayDeviceSource::splitFra
 			free(pps_base64);
 			LOGE("%s",m_auxLine.c_str());
 		}
-		frameList.push_back(std::make_pair<unsigned char*,size_t>(buffer, size));
+		frameList.push_back(std::make_pair(buffer, size));
 		
 		buffer = this->extractFrame(&buffer[size], bufSize, size);
 	}

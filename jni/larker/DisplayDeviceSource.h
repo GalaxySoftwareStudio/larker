@@ -84,7 +84,7 @@ class DisplayDeviceSource: public FramedSource{
 		void queueFrame(char * frame, int frameSize, const timeval &tv);
 
 		// split packet in frames
-		virtual std::list< std::pair<unsigned char*,size_t> > splitFrames(unsigned char* frame, unsigned frameSize);
+		virtual std::list< std::pair<unsigned char*,size_t> > splitFrames(unsigned char* frame, size_t frameSize);
 		
 		// overide FramedSource
 		virtual void doGetNextFrame();	

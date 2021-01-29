@@ -120,7 +120,7 @@ typedef unsigned char u_int8_t;
 #endif
 
 #ifndef SOCKLEN_T
-#define SOCKLEN_T int
+#define SOCKLEN_T socklen_t
 #endif
 
 #endif

@@ -1,0 +1,5 @@
+jni/.gitignore
+*.so
+*.o
+*.d
+larker
