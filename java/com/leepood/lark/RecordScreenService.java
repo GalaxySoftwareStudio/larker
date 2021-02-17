@@ -138,11 +138,8 @@ public class RecordScreenService extends Service implements EncoderThread.Encode
 
 
     private void createRecordSession(int resultCode, Intent data) throws Exception {
-
-
         MediaFormat mMediaFormat = MediaFormat.createVideoFormat("video/avc", recordInfo.getVideoWidth(),
                 recordInfo.getVideoHeight());
-
 
         mMediaFormat.setInteger(MediaFormat.KEY_BIT_RATE, bitRate * 1024);
         mMediaFormat.setInteger(MediaFormat.KEY_FRAME_RATE, frameRate);
@@ -152,7 +149,7 @@ public class RecordScreenService extends Service implements EncoderThread.Encode
         mMediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, iFrame);
 
         encoder = MediaCodec.createEncoderByType("video/avc");
-
+        
         encoder.configure(mMediaFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
 
         Surface surface = encoder.createInputSurface();

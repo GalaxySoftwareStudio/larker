@@ -33,14 +33,13 @@ public class EncoderThread extends Thread {
         this.mListener = listener;
     }
 
-
     @Override
     public void run() {
         finished = false;
         if (mListener != null) mListener.onEncoderStart();
         MediaCodec.BufferInfo info = new MediaCodec.BufferInfo();
         ByteBuffer[] encoderOutputBuffers = mediaCodec.getOutputBuffers();
-
+        
         while (!finished) {
             int encoderStatus;
             try {
@@ -58,7 +57,6 @@ public class EncoderThread extends Thread {
                 encoderOutputBuffers = mediaCodec.getOutputBuffers();
             } else if (encoderStatus == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
                 // not expected for an encoder
-//                MediaFormat newFormat = mediaCodec.getOutputFormat();
             } else if (encoderStatus < 0) {
                 break;
             } else {

@@ -25,7 +25,6 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 
-
 import com.leepood.lark.utils.Common;
 import com.leepood.lark.utils.ToastManager;
 import com.melnykov.fab.FloatingActionButton;
@@ -82,6 +81,7 @@ public class LarkMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lark_main);
         ButterKnife.inject(this);
+        
         registerBroadcast();
 
         displayWifiInfo();
@@ -189,7 +189,7 @@ public class LarkMainActivity extends Activity {
     private void handleRecordScreenRequest(int requestCode, int resultCode, Intent data) {
         if (requestCode != Common.CREATE_SCREEN_CAPTURE) return;
         if (resultCode != RESULT_OK) return;
-
+        
         // start background service
         Intent serviceIntent = new Intent(this, RecordScreenService.class);
         serviceIntent.putExtra("resultCode", resultCode);
